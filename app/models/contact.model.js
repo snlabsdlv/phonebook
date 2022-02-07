@@ -50,8 +50,8 @@ const contactSchema = new Schema({
 
 contactSchema.plugin(uniqueValidator);
 
-
 const Contact = mongoose.model("contacts", contactSchema);
+
 const validate = (contact) => {
     const schema = Joi.object({
         name: Joi.string().required(),
