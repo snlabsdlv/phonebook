@@ -18,7 +18,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:4000/api/61fff95973437d66758fe2e1",
+					"raw": "http://localhost:4000/api/61fefde9f8283d5e627a028a",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -26,7 +26,7 @@
 					"port": "4000",
 					"path": [
 						"api",
-						"61fff95973437d66758fe2e1"
+						"61fefde9f8283d5e627a028a"
 					]
 				}
 			},
@@ -45,7 +45,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:4000/api/61fff95973437d66758fe2e1",
+					"raw": "http://localhost:4000/api/search/?name=John Doe&workPhone=394549491&homePhone=+3945941111",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -53,7 +53,22 @@
 					"port": "4000",
 					"path": [
 						"api",
-						"61fff95973437d66758fe2e1"
+						"search",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "John Doe"
+						},
+						{
+							"key": "workPhone",
+							"value": "394549491"
+						},
+						{
+							"key": "homePhone",
+							"value": "+3945941111"
+						}
 					]
 				}
 			},
@@ -65,7 +80,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:4000/api/",
+					"raw": "http://localhost:4000/api/?limit=3",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -74,6 +89,17 @@
 					"path": [
 						"api",
 						""
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "3"
+						},
+						{
+							"key": "sort",
+							"value": "-1",
+							"disabled": true
+						}
 					]
 				}
 			},
@@ -94,7 +120,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:4000/api/61ffc4a1a46ed19ab3534d36",
+					"raw": "http://localhost:4000/api/6200df0b42f10b9c93547406",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -102,7 +128,7 @@
 					"port": "4000",
 					"path": [
 						"api",
-						"61ffc4a1a46ed19ab3534d36"
+						"6200df0b42f10b9c93547406"
 					]
 				}
 			},
@@ -115,7 +141,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "  {\n        \"name\": \"Frank Nando\",\n        \"workPhone\": \"+971492888\",\n        \"homePhone\": \"+9714194991\",\n        \"address\": \"Dubai Plaza\",\n        \"mobilePhone\" : \"+9714194991\",\n        \"email\": \"frank.nando@yahoo.com\"\n    }",
+					"raw": "  {\n        \"name\": \"John Renna\",\n        \"workPhone\": \"33151203050\",\n        \"homePhone\": \"33156203050\",\n        \"address\": \"Avenue Victor Hugo\",\n        \"mobilePhone\" : \"+33156705050\",\n        \"email\": \"John.renna@yahoo.com\"\n    }",
 					"options": {
 						"raw": {
 							"language": "json"

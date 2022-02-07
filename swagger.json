@@ -1,0 +1,12 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Phone Book API",
+        "description": "Swagger Open Api Specifications",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    }
+}
