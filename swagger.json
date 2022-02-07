@@ -8,5 +8,244 @@
             "name": "MIT",
             "url": "https://opensource.org/licenses/MIT"
         }
+    },
+    "host": "localhost:4000",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "PhoneBook Api",
+            "description": "API for Phone Contacts in the system"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/api/search": {
+            "get": {
+                "tags": [
+                    "Search Contact"
+                ],
+                "summary": "Search Contact",
+                "description": "Search Contact by name, workPhone,mobilePhone,email",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Search by Name"
+                    },
+                    {
+                        "name": "workPhone",
+                        "in": "query",
+                        "type": "string",
+                        "required": false,
+                        "description": "Search by Work Phone"
+                    },
+                    {
+                        "name": "mobilePhone",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Search by Mobile Phone"
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Search by Email"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return Array of Results"
+                    }
+                }
+            }
+        },
+        "/api": {
+            "post": {
+                "tags": [
+                    "Create new Contact"
+                ],
+                "summary": "Create new Contact",
+                "description": "Create or Add New Contact ",
+                "parameters": [
+                    {
+                        "name": "contact",
+                        "in": "body",
+                        "description": "Contact to Add",
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        },
+                        "example": {
+                            "name": "Frank Swill",
+                            "workPhone": "+971492888",
+                            "homePhone": "+9714194991",
+                            "mobilePhone": "+9714194991",
+                            "address": "Dubai Road, U.A.E",
+                            "email": "frank.nando  @emirate.ae"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Contact is created",
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Get All Contacts"
+                ],
+                "summary": "Get All Contacts",
+                "description": "Get /Sort Contats  ",
+                "parameters": [
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Sort by Name",
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        },
+                        "example": {
+                            "sort": "1 or -1"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit Results",
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        },
+                        "example": {
+                            "limit": "5"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return Array of Contacts",
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "Contact Id",
+                    "type": "string",
+                    "example": "61fff95973437d66758fe2e1"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Contact"
+                ],
+                "summary": "Get Contact by contactId(:id)",
+                "responses": {
+                    "200": {
+                        "description": "Contact Found ",
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete Contact by contactId(:id)",
+                "tags": [
+                    "Contact"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Contact Deleted",
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update Contact by contactId(:id)",
+                "tags": [
+                    "Contact"
+                ],
+                "parameters": [
+                    {
+                        "name": "Object",
+                        "in": "body",
+                        "description": "Update any value of Contact",
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Contact Updated",
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Contact": {
+            "required": [
+                "name",
+                "workPhone",
+                "homePhone",
+                "mobilePhone",
+                "address",
+                "email"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "workPhone": {
+                    "type": "string"
+                },
+                "homePhone": {
+                    "type": "string"
+                },
+                "mobilePhone": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                }
+            }
+        }
     }
 }
